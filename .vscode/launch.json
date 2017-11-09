@@ -8,10 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Gulp task",
-            "program": "${workspaceFolder}/node_modules/webpack/bin/webpack.js"
-            // "args": [
-            //     "task
-            // ]
+            "program": "${workspaceRoot}/node_modules/webpack/bin/webpack.js"
         }
     ]
 }
