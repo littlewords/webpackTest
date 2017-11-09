@@ -1,6 +1,7 @@
 // 一个常见的`webpack`配置文件
 const webpack = require('webpack');
-const aPlugin = require('./plugin/a')
+const SplitChunks = require('./plugin/splitChunks');
+const DepMap = require('./plugin/depMap.js')
 
 module.exports = {
     entry: {
@@ -9,7 +10,7 @@ module.exports = {
     output: {
         path: __dirname + "/build",
         filename: "hehe-[chunkhash].js",
-        chunkFilename: "hehe[id].js"
+        chunkFilename: "[id]-[chunkhash].js"
     },
     module: {
         rules: [{
@@ -24,6 +25,7 @@ module.exports = {
             name: 'common',
             filename: 'common_[chunkhash].js'
         }),
-        new aPlugin()
+        new SplitChunks(),
+        new DepMap()
     ],
 };
