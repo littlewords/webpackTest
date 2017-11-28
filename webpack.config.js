@@ -1,6 +1,6 @@
 // 一个常见的`webpack`配置文件
 const webpack = require('webpack');
-const SplitChunks = require('./plugin/splitChunks');
+const SplitChunks = require('./plugin/chunkAsModule.js');
 const DepMap = require('./plugin/depMap.js')
 
 module.exports = {
@@ -25,7 +25,7 @@ module.exports = {
             name: 'common',
             filename: 'common_[chunkhash].js'
         }),
-        new SplitChunks(),
-        new DepMap()
+        new SplitChunks()
+        // new DepMap()
     ],
 };
